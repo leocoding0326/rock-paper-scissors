@@ -2,40 +2,57 @@
 /*computer choice*/
 function getComputerChoice (){
     
-    const num = Math.floor (Math.random() * 3);
+    let num = Math.floor (Math.random() * 3);
 
     if (num === 0){
-        return "pc choose rock";
+        return "rock";
     }
     else if (num === 1){
-         return "pc choose paper";
+         return "paper";
     }
     else{
-        return "pc choose scissors"
+        return "scissors"
     }
     }
-console.log(getComputerChoice())
 
 /* User Choice */
 
 function getHumanChoice (){
     
-    let choice =prompt ("Enter 1 for rock, 2 for paper, 3 for scissors");
-    
-    choice=Number(choice)
+    return prompt ("Enter rock, paper, scissors");
 
-    if(choice === 1) {
-        console.log("rock")
+}
+/* Players Score*/
+
+let humanScore = 0;
+let computerScore = 0;
+
+/* 1 round logic */
+
+function playRound (humanChoice, computerChoice) {
+
+    humanChoice = humanChoice.toLowerCase();
+    
+    if (humanSelection === computerSelection) {
+        console.log ("It's tie, try again!")
     }
-    else if (choice === 2) {
-        console.log("paper")
+    else if (computerSelection ===1 && humanSelection ===0 ){
+        console.log("Too bad, computer wins !")
     }
-    else if (choice === 3) {
-        console.log ("scissors")
+    else if (computerSelection ===2 && humanSelection ===1 ){
+        console.log("Too bad, computer wins !")
+    }
+    else if (computerSelection ===0 && humanSelection === 2 ){
+        console.log("Too bad, computer wins")
     }
     else {
-        "invalid choice"
+        console.log("Congrats ! You Win!!!")
     }
 }
-console.log(getHumanChoice())
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
+console.log(`Computer choose ${computerSelection}`)
+console.log(`You choose ${humanSelection}`)
+
+playRound (humanSelection, computerSelection) 
