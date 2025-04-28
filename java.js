@@ -36,17 +36,15 @@ function playRound (humanChoice, computerChoice) {
     if (humanSelection === computerSelection) {
         console.log ("It's tie, try again!")
     }
-    else if (computerSelection ===1 && humanSelection ===0 ){
-        console.log("Too bad, computer wins !")
-    }
-    else if (computerSelection ===2 && humanSelection ===1 ){
-        console.log("Too bad, computer wins !")
-    }
-    else if (computerSelection ===0 && humanSelection === 2 ){
+    else if (computerSelection ===1 && humanSelection ===0 ||
+             computerSelection ===2 && humanSelection ===1 ||
+             computerSelection ===0 && humanSelection === 2
+    ){
         console.log("Too bad, computer wins")
     }
     else {
         console.log("Congrats ! You Win!!!")
+        humanScore ++
     }
 }
 const humanSelection = getHumanChoice();
