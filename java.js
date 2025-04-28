@@ -38,13 +38,14 @@ function playRound (humanChoice, computerChoice) {
     }
     else if (computerSelection ===1 && humanSelection ===0 ||
              computerSelection ===2 && humanSelection ===1 ||
-             computerSelection ===0 && humanSelection === 2
-    ){
+             computerSelection ===0 && humanSelection === 2)
+    {
         console.log("Too bad, computer wins")
+        computerScore ++;
     }
     else {
         console.log("Congrats ! You Win!!!")
-        humanScore ++
+        humanScore ++;
     }
 }
 const humanSelection = getHumanChoice();
@@ -54,3 +55,4 @@ console.log(`Computer choose ${computerSelection}`)
 console.log(`You choose ${humanSelection}`)
 
 playRound (humanSelection, computerSelection) 
+console.log(`Your Score ${humanScore} Computer Score ${computerScore}`)
