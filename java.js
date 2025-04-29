@@ -52,6 +52,8 @@ function playRound (humanChoice, computerChoice) {
     console.log ("")
 }
 
+/* Five rounds logic */
+
 const humanSelection = getHumanChoice;
 const computerSelection = getComputerChoice;
 
