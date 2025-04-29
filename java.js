@@ -17,42 +17,57 @@ function getComputerChoice (){
 
 /* User Choice */
 
-function getHumanChoice (){
+function getHumanChoice(){
     
     return prompt ("Enter rock, paper, scissors");
-
 }
-/* Players Score*/
-
+    
 let humanScore = 0;
 let computerScore = 0;
 
-/* 1 round logic */
+    /* 1 round logic */
 
 function playRound (humanChoice, computerChoice) {
 
     humanChoice = humanChoice.toLowerCase();
     
-    if (humanSelection === computerSelection) {
+    if (humanChoice === computerChoice) {
         console.log ("It's tie, try again!")
     }
-    else if (computerSelection ===1 && humanSelection ===0 ||
-             computerSelection ===2 && humanSelection ===1 ||
-             computerSelection ===0 && humanSelection === 2)
+    else if  (computerChoice === "paper" && humanChoice === "rock" ||
+             computerChoice === "scissors" && humanChoice === "paper" ||
+             computerChoice === "rock" && humanChoice === "scissors")
     {
         console.log("Too bad, computer wins")
         computerScore ++;
     }
     else {
         console.log("Congrats ! You Win!!!")
+       
         humanScore ++;
     }
+    console.log(`Computer choose ${computerChoice}`)
+    console.log(`You choose ${humanChoice}`);
+    console.log(`Your Score ${humanScore} Computer Score ${computerScore}`)
+    console.log ("")
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-console.log(`Computer choose ${computerSelection}`)
-console.log(`You choose ${humanSelection}`)
+const humanSelection = getHumanChoice;
+const computerSelection = getComputerChoice;
 
-playRound (humanSelection, computerSelection) 
-console.log(`Your Score ${humanScore} Computer Score ${computerScore}`)
+function playGame () {
+    
+    for (let i = 1; i <= 5; i++) {
+    console.log(`Round ${i}:`)
+    playRound (humanSelection(5), computerSelection(5))
+    
+    }
+    if (humanScore > computerScore) {
+        console.log("You are the Winner!!!")
+    }
+    else {
+        console.log("Sorry, Computer Wins!")
+    }
+}
+
+playGame ()
